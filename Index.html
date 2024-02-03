@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color: gray;">
+    
+<div id="images">
+    <ul>
+        <li>
+        <img src="images/cat-7995160_1280.jpg" id="CAT" width="200px"/>
+      </li>
+        <li>
+        <img src="images/cormorant-8516719_1280.jpg" width="200px"/>
+      </li>
+        <li>
+        <img src="images/desert-8542838_1280.jpg" width="200px"/>
+      </li>
+        <li>
+        <img src="images/owl-8372237_1280.jpg" width="200px"/>
+      </li>
+        <li>
+        <img src="images/river-8540767_1280.jpg" width="200px" />
+      </li>
+    </ul>
+</div>
+
+<button id="ButtonOne">Click me to get alert</button>
+<a href="https://google.com" id="Google" target="_blank"><button>Go to Google</button></a>
+
+</body>
+
+<script>
+   // document.getElementById('ButtonOne').onclick =  function Practice(){
+     //   alert("Wow you learned it");
+    //}
+
+    document.getElementById('ButtonOne').addEventListener('click', function(e){
+        console.log(e);
+    })
+
+    document.getElementById('Google').addEventListener('click', function(e){
+e.preventDefault();
+console.log("Google clicked");
+    },false)
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+        removeIt.remove();
+        }
+        
+    })
+</script>
+</html>
